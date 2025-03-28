@@ -194,6 +194,7 @@ int pivot(int arr[] , int size){
     }
     return -1;
 }
+
 int main(){
     int arr[] ={0,1,0,1,0,1,0,1};
     int arr1[]={12,34,534,123,53,35,4233,245};
