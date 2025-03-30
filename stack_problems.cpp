@@ -126,6 +126,34 @@ void print(stack<int>st){
     }
     cout<<endl;
 }
+bool redundent(string str){
+    stack<char>st;
+    for(int i =0;i<str.length();i++){
+        char br = str[i];
+        if(br =='('|| br =='+'||br =='*'||br =='/'||br =='-'){
+            st.push(br);
+        }
+        else {
+            if(br ==')'){
+                bool isreduntent = true;
+                while(st.top() != '('){
+                    char br1 = st.top();
+                    if(br1 =='+'||br1 =='*'||br1 =='/'||br1 =='-'){
+                        isreduntent = false;
+                    }
+                    st.pop();
+                }
+                if(isreduntent == true){
+                    return true;
+                }
+                st.pop();
+
+            }
+        }
+    }
+    
+    return false;
+}
 int main(){
     string str = "babbar";
     int size = str.length();
@@ -141,8 +169,11 @@ int main(){
     // sorted(st,89);
     // print(st);
     string str1 = "(({[({)}))";
-    bool ans = validparenthesis(str1);
-    cout<<ans;
+    string str2 = "(a*(s+b))";
+    bool ans2 = redundent(str2);
+    cout<<ans2;
+    // bool ans = validparenthesis(str1);
+    // cout<<ans;
     // insertatbottom(st,230,st.size());
     // cout<<"before reverse:";
     // print(st);
